@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parc Ambiental de Bufalvent</title>
+
+<link rel="icon" type="image/jpg" href="icono.jpg">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css">
+<script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-overlay">
+    <h1>Parc Ambiental</h1>
+    <p>Gestió sostenible de residus al Bages</p>
+  </div>
+</header>
+
+<section class="intro">
+  <h2>Què és el Parc Ambiental?</h2>
+
+  <div class="columns">
+    <p>
+      El Parc Ambiental de Bufalvent gestiona la recollida i tractament dels residus
+      municipals del Bages i part del Moianès.
+    </p>
+
+    <p>
+      És un espai situat a Manresa on el tractament de residus conviu amb un entorn natural.
+    </p>
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>Instal·lacions principals</h2>
+
+  <div class="grid">
+    <img src="image-3.jpeg">
+    <img src="image-2.jpg">
+    <img src="image-1.jpg">
+  </div>
+</section>
+
+<!-- ===== VISOR 360 ===== -->
+<section id="visor">
+    <h2>Visor 360º del Parc</h2>
+
+    <select id="imageSelector" class="form-select mb-4">
+        <option value="scene1">Vista General</option>
+        <option value="scene2">Oficina</option>
+        <option value="scene3">Abocador</option>
+        <option value="scene4">Plantatransferencia</option>
+        <option value="scene5">Plantacompostatge</option>
+        <option value="scene6">Plantacompostatge 2</option>
+        <option value="scene7">Nova Planta</option>
+        <option value="scene8">Falconeria</option>
+    </select>
+
+    <div id="panorama"></div>
+</section>
+
+<section id="video360">
+    <h2>Vídeo 360º</h2>
+    <div class="iframe-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/1hL05x7JO4o"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<section class="map">
+  <h2>On som?</h2>
+
+  <iframe 
+    src="https://www.google.com/maps?q=Parc+Ambiental+Bufalvent&output=embed">
+  </iframe>
+</section>
+
+<section class="agraiments">
+  <h2>Agraïments</h2>
+
+  <ul>
+    <li><a href="https://www.consorcidelbages.cat/parc-ambiental/" target="_blank">Consorci del Bages</a></li>
+    <li><a href="https://drive.google.com/drive/folders/17Q9jsRuBWpBjyMPB2zrD7NKMxSuvB-89" target="_blank">drive</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2026 Parc Ambiental | Projecte acadèmic</p>
+</footer>
+
+<script>
+let viewer = pannellum.viewer('panorama', {
+    default: {
+        firstScene: 'scene1',
+        sceneFadeDuration: 1000
+    },
+    scenes: {
+        scene1: { type: 'equirectangular', panorama: '0_general.jpg' },
+        scene2: { type: 'equirectangular', panorama: '1_oficines.jpg' },
+        scene3: { type: 'equirectangular', panorama: '2_abocador.jpg' },
+        scene4: { type: 'equirectangular', panorama: '3_plantatransferencia.jpg' },
+        scene5: { type: 'equirectangular', panorama: '7_1plantacompostatge.jpg' },
+        scene6: { type: 'equirectangular', panorama: '7_plantacompostatge.jpg' },
+        scene7: { type: 'equirectangular', panorama: '8_novaplanta.jpg' },
+        scene8: { type: 'equirectangular', panorama: '9_falconeria.jpg' },
+    }
+});
+
+document.getElementById('imageSelector').addEventListener('change', function() {
+    viewer.loadScene(this.value);
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
